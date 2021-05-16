@@ -1,0 +1,22 @@
+service: aws-java-simple-http-endpoint
+# service: helloworld
+# app and org for use with dashboard.serverless.com
+app: crix11s-app
+org: crix11s
+
+frameworkVersion: ">=1.2.0"
+
+provider:
+  name: aws
+  runtime: java8
+  
+package:
+  artifact: target/aws-java-simple-http-endpoint.jar 
+
+functions:
+  currentTime:
+    handler: com.serverless.Handler
+    events:
+      - http:
+          path: ping
+          method: get
